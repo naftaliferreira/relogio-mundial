@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Estado para a hora atual
+  const [localTime, setLocalTime] = useState(new Date());
+
+  // Atualiza a hora a cada segundo
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setLocalTime(new Date());
+    }, 1000);
+
+    // A função de limpeza do useEffect é crucial para evitar memory leaks
+    return () => clearInterval(timerId);
+  }, []); // Array vazio para rodar o efeito apenas uma vez na montagem
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <h1>Relógio Mundial</h1>
+      <div className="clocks-list">
+        <div className="clock-card">
+          <h2>Hora Local</h2>
+          <p className="time">{localTime.toLocaleTimeString()}</p>
+          <p className="date">{localTime.toLocaleDateString()}</p>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
