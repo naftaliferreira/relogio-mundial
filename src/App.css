@@ -38,6 +38,17 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 250px;
+  background-color: #eaf6ff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-clock-container input:focus {
+  outline: none;
+  /* <-- Remove o contorno padrão */
+  border-color: #3498db;
+  /* <-- Adiciona uma borda colorida no foco */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  /* <-- Adiciona uma sombra suave no foco */
 }
 
 .add-clock-container button {
@@ -86,18 +97,23 @@ h1 {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #e74c3c;
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #999;
+  border: 1px solid transparent;
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 1;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.remove-button:hover {
+  background-color: #e74c3c;
+  color: #fff;
 }
 
 .clock-header {
