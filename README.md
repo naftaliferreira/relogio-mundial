@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# Relógio Mundial
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um aplicativo de relógio mundial construído com React que exibe a hora atual em diferentes fusos horários. O projeto foi desenvolvido para facilitar a comunicação e o agendamento de reuniões com pessoas em outras partes do mundo, resolvendo a dor de cabeça de ter que converter horários manualmente.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Biblioteca JavaScript para a construção de interfaces de usuário reativas.
+- **TypeScript**: Adiciona tipagem estática, garantindo um código mais seguro e robusto.
+- **Vite**: Ferramenta de build moderna e rápida, ideal para um ambiente de desenvolvimento ágil.
+- **Intl.DateTimeFormat API**: Uma API nativa do navegador que permite formatar datas e horas de acordo com fusos horários específicos, eliminando a necessidade de bibliotecas de terceiros para essa funcionalidade.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Múltiplos Relógios**: Exibe a hora e a data em tempo real para múltiplos fusos horários selecionados.
+- **Relógio Dinâmico**: Os relógios são atualizados a cada segundo, garantindo a precisão.
+- **Adicionar e Remover Relógios**: Funcionalidade dinâmica para adicionar novos relógios de fusos horários diferentes e remover os existentes.
+- **Interface Limpa e Profissional**: O design utiliza um layout de grade para uma visualização clara e um esquema de cores moderno.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Como Executar o Projeto
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Para rodar a aplicação localmente, siga os seguintes passos no seu terminal:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Navegue até o diretório do projeto:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    ```bash
+    cd relogio-mundial
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Instale as dependências:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    ```bash
+    npm install
+    ```
+
+3. Inicie o servidor de desenvolvimento:
+
+    ```bash
+    npm run dev
+    ```
+
+A aplicação estará disponível em `http://localhost:5173/`.
+
+## Estrutura do Projeto
+
+- **`src/App.tsx`**: Contém a lógica principal da aplicação, incluindo o gerenciamento do estado dos relógios e as funções para adicionar e remover relógios.
+- **`src/App.css`**: Define a estilização de todos os componentes da interface.
+
+## Funcionalidades Futuras
+
+O projeto pode ser expandido para incluir as seguintes funcionalidades:
+
+1. **Persistência de Dados**: Salvar a lista de fusos horários no `localStorage` para que a seleção do usuário persista ao recarregar a página.
+2. **Busca com Autocomplete**: Adicionar um sistema de busca com sugestões para facilitar a localização e a adição de fusos horários.
+3. **Personalização**: Permitir que o usuário renomeie os relógios para um nome mais amigável (ex: "Hora em casa", "Hora do escritório").
+
+---
+
+Com esta documentação, seu projeto está completo. Ele demonstra um excelente domínio do React, do gerenciamento de estado e do trabalho com APIs nativas do navegador.
+
+O que você achou do resultado final e da documentação?
+
+# Detalhe do projeto
+
+![detalhe-do-projeto](./src/assets/media/image/Captura.png)
